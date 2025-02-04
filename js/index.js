@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Select various elements in the navigation menu and hero section
-    const navBottom = document.querySelector(".nav_bottom-wrapper");
-    const linksImgWrapper = document.querySelectorAll(".nav_bottom_link-img-wrapper");
-    const linksImg = document.querySelectorAll(".nav_bottom_link-img");
-    const navTopLinks = document.querySelectorAll(".nav_top-wrapper .nav_link");
-    const navBottomLinks = document.querySelectorAll(".nav_bottom-wrapper .nav_link");
-    const allNavLines = document.querySelectorAll(".nav_bottom_line");
-    const navMenu = document.querySelector(".nav_menu");
-    const navMenuLines = document.querySelectorAll(".nav_menu .nav_menu_line");
-    const heroTexts = document.querySelectorAll(".hero_text");
+    const navBottom = document.querySelector('[data-nav="bottom-wrapper"]');
+    const linksImgWrapper = document.querySelectorAll('[data-nav="link-img"]');
+    const linksImg = document.querySelectorAll('[data-nav="link-img"] img');
+    const navTopLinks = document.querySelectorAll('[data-nav="top-link"]');
+    const navBottomLinks = document.querySelectorAll('[data-nav="bottom-link"]');
+    const allNavLines = document.querySelectorAll('[data-nav="bottom-line"]');
+    const navMenuButton = document.querySelector('[data-nav="menu-button"]');
+    const navMenuLines = document.querySelectorAll('[data-nav="menu-line"]');
+    const heroTexts = document.querySelectorAll('[data-hero="text"]');
 
     // Create split animation for each character in top and bottom navigation links
     const navBottomLinksSplits = Array.from(navBottomLinks, (n) =>
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let isClosed = false;
 
     // Toggle the menu animation on menu click
-    navMenu.addEventListener("click", () => {
+    navMenuButton.addEventListener("click", () => {
       if (isClosed) {
         navBottomLinksSplits.forEach((n) => n.elements[0]?.classList.remove("fade-in"));
         closeAnimation.restart();
